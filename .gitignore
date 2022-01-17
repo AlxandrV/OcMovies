@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# App
+/ocmovies-front/style/*.css
+/ocmovies-front/style/*.css.map
