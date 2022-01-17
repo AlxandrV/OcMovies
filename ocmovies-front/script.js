@@ -43,6 +43,11 @@ function xhr(option) {
     });
 }
 
+// Request max score IMDB
+const option = {
+    "type": "GET",
+    "url": API_PATH.concat(FILTERS[10], "-imdb_score")
+} 
 const getJSON = async (option) => {
     let xhrJSON = await xhr(option).then(JSON.parse)
     console.log(xhrJSON.results)
