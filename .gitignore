@@ -129,5 +129,5 @@ dmypy.json
 .pyre/
 
 # App
-/ocmovies-front/style/*.css
-/ocmovies-front/style/*.css.map
+/public/style/*.css
+/public/style/*.css.map
