@@ -1,5 +1,33 @@
 const API_PATH = "http://localhost:8000/api/v1/titles/?format=json"
 
+const FILTERS = {
+    0: "&year=",
+    1: "&min_year=",
+    2: "&max_year=",
+    3: "&imdb_score=",
+    4: "&imdb_score_min=",
+    5: "&imdb_score_max=",
+    6: "&title=",
+    7: "&title_contains=",
+    8: "&genre=",
+    9: "&genre_contains=",
+    10: "&sort_by=",
+    11: "&director=",
+    12: "&director_contains=",
+    13: "&writer=",
+    14: "&writer_contains=",
+    15: "&actor=",
+    16: "&actor_contains=",
+    17: "&country=",
+    18: "&country_contains=",
+    19: "&lang=",
+    20: "&lang_contains=",
+    21: "&company=",
+    22: "&company_contains=",
+    23: "&rating=",
+    24: "&rating_contains="
+}
+
 // Ajax
 function xhr(option) {
     return new Promise(function(resolve) {
