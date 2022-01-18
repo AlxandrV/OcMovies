@@ -1,4 +1,5 @@
 const API_PATH = "http://localhost:8000/api/v1/titles/?format=json"
+const BEST_MOVIE = document.getElementById('best-movie')
 
 const FILTERS = {
     0: "&year=",
@@ -50,6 +51,10 @@ const option = {
 } 
 const getJSON = async (option) => {
     let xhrJSON = await xhr(option).then(JSON.parse)
-    console.log(xhrJSON.results)
+    console.log(xhrJSON.results[0])
+    BEST_MOVIE.getElementsByClassName('categorie')[0].innerHTML = xhrJSON.results[0].genres[0]
+    BEST_MOVIE.getElementsByClassName('year')[0].innerHTML = xhrJSON.results[0].year
+    BEST_MOVIE.getElementsByClassName('title')[0].innerHTML = xhrJSON.results[0].title
+    BEST_MOVIE.getElementsByTagName('IMG')[0].setAttribute("src", xhrJSON.results[0].image_url)
 }
 getJSON(option)
