@@ -55,6 +55,7 @@ const getJSON = async (option) => {
     BEST_MOVIE.getElementsByClassName('categorie')[0].innerHTML = xhrJSON.results[0].genres[0]
     BEST_MOVIE.getElementsByClassName('year')[0].innerHTML = xhrJSON.results[0].year
     BEST_MOVIE.getElementsByClassName('title')[0].innerHTML = xhrJSON.results[0].title
+    BEST_MOVIE.getElementsByClassName('score')[0].innerHTML = "Score Imdb : " + xhrJSON.results[0].imdb_score
     BEST_MOVIE.getElementsByTagName('IMG')[0].setAttribute("src", xhrJSON.results[0].image_url)
 }
 getJSON(option)

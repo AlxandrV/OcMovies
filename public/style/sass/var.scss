@@ -1,8 +1,11 @@
 // Colors
 $background: #17004f;
 $backgroundSecondary: #ac4bff;
-$col-link: #fff;
-$col-paragraph: #ddbb88;
+$backgroundDegrade: radial-gradient(circle, rgba(172,75,255,1) 0%, rgba(23,0,79,1) 60%);
+$colLink: #fff;
+$colParagraph: #ddbb88;
+$colButton: rgb(229, 9, 20);
 
 // Font size
-$size-paragraph: 1.25rem;
+$sizeHeader: 1.25rem;
+$sizeH3: 2rem;
