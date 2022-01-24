@@ -17,3 +17,17 @@
         height: auto;
     }
 }
+
+.list{
+    > p{
+        margin: 50px 45px 0px
+    }
+    .section-list{
+        overflow-x: scroll;
+        margin: 15px 45px 50px;
+        
+        div{
+            margin: 20px;            
+        }
+    }
+}

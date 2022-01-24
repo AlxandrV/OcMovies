@@ -2,7 +2,10 @@
     margin: 0;
     color: $colParagraph; 
 }
-html{ background-color: $background; }
+html{
+    background-color: $background;
+    overflow-x: hidden;
+}
 ul{ list-style: none; }
 a{
     text-decoration: none;
