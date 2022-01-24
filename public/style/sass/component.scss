@@ -6,3 +6,25 @@
     color: $colLink;
     background-color: $colButton;
 }
+
+.arrow-previous{
+    cursor: pointer;
+    margin: 10px;
+    border: solid $colArrow;
+    border-width: 0 7px 7px 0;
+    display: inline-block;
+    padding: 20px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.arrow-next{
+    cursor: pointer;
+    margin: 10px;
+    border: solid $colArrow;
+    border-width: 0 7px 7px 0;
+    display: inline-block;
+    padding: 20px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}

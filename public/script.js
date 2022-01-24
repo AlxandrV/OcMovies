@@ -50,16 +50,19 @@ function xhr(option) {
 function create_section(categorie) {
     let section = document.getElementsByTagName("BODY")[0].insertBefore(document.createElement("section"), SCRIPT_TAG)
     section.setAttribute("id", categorie.tag_id)
+    section.classList.add('section-list')
     
-    const div_elements = ['arrow-previous', 'list', 'arrow-next']
+    section.appendChild(document.createElement("P")).innerHTML = categorie.name
+    content = section.appendChild(document.createElement("DIV"))
+    content.classList.add('list', 'd-flex', 'align-center')
+    
+    const div_elements = ['arrow-previous', 'content', 'arrow-next']
     div_elements.forEach(element => {
-        section.appendChild(document.createElement("DIV")).classList.add(element)
+        content.appendChild(document.createElement("DIV")).classList.add(element)
     })
     
-    let div_content = section.getElementsByClassName('list')[0]
-    div_content.appendChild(document.createElement("P")).innerHTML = categorie.name
-    let content_elements = div_content.appendChild(document.createElement("DIV"))
-    content_elements.classList.add('section-list', 'box-size', 'd-flex', 'just-between')
+    let div_content = content.getElementsByClassName('content')[0]
+    div_content.classList.add('content-list', 'box-size', 'd-flex', 'just-between')
     
     const getList = async (categorie, div_content) => {
         const option = {
@@ -80,7 +83,7 @@ function create_section(categorie) {
         });
         
     }
-    getList(categorie, content_elements)
+    getList(categorie, div_content)
 }
 
 // Request max score IMDB
@@ -98,9 +101,8 @@ const getJSON = async () => {
     BEST_MOVIE.getElementsByClassName('score')[0].innerHTML = "Score Imdb : " + xhrJSON.results[0].imdb_score
     BEST_MOVIE.getElementsByTagName('IMG')[0].setAttribute("src", xhrJSON.results[0].image_url)
     
-    create_section({'filter': '', 'tag_id': 'list-best-movies', 'name': 'Les mieux notés'})
-
     categories_list = [
+        {'filter': '', 'tag_id': 'list-best-movies', 'name': 'Les mieux notés'},
         {'filter': 'action', 'tag_id': 'list-action', 'name': 'Action'},
         {'filter': 'animation', 'tag_id': 'list-animation', 'name': 'Animation'},
         {'filter': 'biography', 'tag_id': 'list-biograpgy', 'name': 'Biography'},

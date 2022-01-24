@@ -18,16 +18,22 @@
     }
 }
 
-.list{
+
+.section-list{
     > p{
         margin: 50px 45px 0px
     }
-    .section-list{
-        overflow-x: scroll;
+    
+    .list{
+        overflow-x: hidden;
         margin: 15px 45px 50px;
-        
-        div{
-            margin: 20px;            
+
+        .content{
+            overflow-x: hidden;
+
+            > div{
+                margin: 0 20px;
+            }
         }
     }
 }
