@@ -80,10 +80,35 @@ function create_section(categorie) {
             div = div_content.appendChild(document.createElement("div"))
             div.appendChild(document.createElement("img")).setAttribute("src", element.image_url)
             div.appendChild(document.createElement("p")).innerHTML = element.title
+
+            div.addEventListener('click', () => {
+                modal(element)
+            });
         });
         
     }
+
     getList(categorie, div_content)
+
+    // Scroll content on right
+    const arrow_previous = content.getElementsByClassName('arrow-previous')[0]
+    arrow_previous.addEventListener('click', () => {
+        content_width = div_content.offsetWidth
+        div_content.scrollLeft -= content_width
+    });
+
+    // Scroll content on left
+    const arrow_next = content.getElementsByClassName('arrow-next')[0]
+    arrow_next.addEventListener('click', () => {
+        content_width = div_content.offsetWidth
+        div_content.scrollLeft += content_width
+    });
+
+}
+
+// Get modal informations of a movie
+function modal(element) {
+    console.log(element.title)
 }
 
 // Request max score IMDB

@@ -11,6 +11,11 @@
             text-align: center;
             margin: 8px;
         }
+        
+        div:nth-of-type(2) > .button-infos{
+            margin: 8px auto;
+        }
+
     }
     > img{
         max-width: 50%;
