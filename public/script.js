@@ -1,7 +1,8 @@
 const API_PATH = "http://localhost:8000/api/v1/titles/?format=json"
 const BEST_MOVIE = document.getElementById('best-movie')
 const SCRIPT_TAG = document.getElementsByTagName("BODY")[0].getElementsByTagName("SCRIPT")[0]
-const MODAL = document.getElementsByClassName('modal')[0]
+const MODAL = document.getElementsByClassName('modal-background')[0]
+const CLOSE = MODAL.getElementsByClassName('close')[0]
 
 const FILTERS = {
     0: "&year=",
@@ -112,13 +113,12 @@ function modal(element) {
     MODAL.getElementsByTagName('IMG')[0].setAttribute("src", element.image_url)
     MODAL.getElementsByClassName('title')[0].innerHTML = element.title
     let list_gender = MODAL.getElementsByClassName('gender')[0].getElementsByTagName('UL')[0]
-    console.log(list_gender)
     element.genres.forEach(genre => {
         let li = list_gender.appendChild(document.createElement('LI'))
         li.innerHTML = genre
     })
-    MODAL.getElementsByClassName('rated')[0].innerHTML = element.votes
-    MODAL.getElementsByClassName('score')[0].innerHTML = element.imdb_score
+    MODAL.getElementsByClassName('rated')[0].innerHTML = "Votes : " + element.votes
+    MODAL.getElementsByClassName('score')[0].innerHTML = "Score Imdb : " + element.imdb_score
     let list_director = MODAL.getElementsByClassName('directors')[0].getElementsByTagName('UL')[0]
     element.directors.forEach(director => {
         let li = list_director.appendChild(document.createElement('LI'))
@@ -129,6 +129,8 @@ function modal(element) {
         let li = list_actor.appendChild(document.createElement('LI'))
         li.innerHTML = actor
     })
+
+    MODAL.classList.add("active")
 }
 
 // Request max score IMDB
@@ -145,7 +147,6 @@ const getJSON = async () => {
     BEST_MOVIE.getElementsByClassName('title')[0].innerHTML = xhrJSON.results[0].title
     BEST_MOVIE.getElementsByClassName('score')[0].innerHTML = "Score Imdb : " + xhrJSON.results[0].imdb_score
     BEST_MOVIE.getElementsByTagName('IMG')[0].setAttribute("src", xhrJSON.results[0].image_url)
-    console.log(xhrJSON.results[0])
     document.getElementsByClassName('button-infos')[0].addEventListener('click', () => {
         modal(xhrJSON.results[0])
     })
@@ -162,3 +163,14 @@ const getJSON = async () => {
     });
 }
 getJSON()
+
+// Close modal
+CLOSE.addEventListener('click', () => {
+    MODAL.classList.remove('active')
+    let list_gender = MODAL.getElementsByClassName('gender')[0].getElementsByTagName('UL')[0]
+    list_gender.innerHTML = ''
+    let list_director = MODAL.getElementsByClassName('directors')[0].getElementsByTagName('UL')[0]
+    list_director.innerHTML = ''
+    let list_actor = MODAL.getElementsByClassName('actors')[0].getElementsByTagName('UL')[0]
+    list_actor.innerHTML = ''
+})

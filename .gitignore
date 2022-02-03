@@ -127,7 +127,3 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-
-# App
-/public/style/*.css
-/public/style/*.css.map

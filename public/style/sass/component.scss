@@ -30,16 +30,62 @@
     -webkit-transform: rotate(-45deg);
 }
 
-.modal{
-    padding: 12px;
+.modal-background{
+    z-index: 1;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
     position: fixed;
-    background-color: $backgroundSecondary;
-    left: 50%;
-    transform: translateX(-50%);
-    height: calc(100vh - 32px);
-    overflow-y: scroll;
+    background-color: rgba(63, 63, 63, 0.3);
+    left: 150%;
+    transition: 1s ease-in-out;
+
+    .modal{
+        position: relative;
+        padding: 12px;
+        background-color: $backgroundSecondary;
+        top: 50%;
+        transform: translateY(-50%);
+        height: calc(100vh - 32px);
+        overflow-y: scroll;
+        width: max-content;
+        
+        .close{
+            position: fixed;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
 }
 
+
+    .close::before, .close::after{
+        position: relative;
+        top: 50%;
+        display: block;
+        content: "";
+        height: 5px;
+        background-color: $colButton;
+        border-radius: 3px;
+    }
+    
+    .close::before{
+        transform:rotate(45deg) translateY(-25%) translateX(-7%);
+    }
+
+    .close::after{
+        transform: rotate(-45deg) translateY(-100%)translateX(15%);
+    }
+}
+
+.modal-background.active{
+    transform: translateX(-150%);
+}
+
+.modal > .title{
+    margin-top: 45px;
+}
 .modal > *{
-    margin: 8px;
+    margin: 15px;
 }

@@ -3,6 +3,7 @@ header{
     background-color: $backgroundSecondary;
     border-radius: 12px;
     padding: 0 16px;
+    flex-wrap: wrap;
 
     ul > li{
         margin-left: 20px;

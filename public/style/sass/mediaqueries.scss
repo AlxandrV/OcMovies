@@ -1,0 +1,27 @@
+@media (max-width: 584.98px) {
+    header{
+        flex-direction: column;
+        div{
+            margin: 8px auto 0;
+        }
+        ul{
+            margin: 0 auto 8px;
+            padding: 0;
+            li:first-of-type{
+                margin-left: 0;
+            }
+        }
+    }
+
+}
+
+@media (max-width: 462.98px) {
+    #best-movie{
+        flex-direction: column;
+
+        img{
+            max-width: 75%;
+            margin: 15px auto;
+        }
+    }
+}
