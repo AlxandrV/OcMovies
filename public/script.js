@@ -63,7 +63,8 @@ function create_section(categorie) {
         content.appendChild(document.createElement("DIV")).classList.add(element)
     })
     
-    let div_content = content.getElementsByClassName('content')[0]
+    let div = content.getElementsByClassName('content')[0]
+    div_content = div.appendChild(document.createElement("DIV"))
     div_content.classList.add('content-list', 'box-size', 'd-flex', 'just-between')
     
     const getList = async (categorie, div_content) => {
@@ -92,18 +93,34 @@ function create_section(categorie) {
 
     getList(categorie, div_content)
 
+    size_scroll = 0
     // Scroll content on right
     const arrow_previous = content.getElementsByClassName('arrow-previous')[0]
     arrow_previous.addEventListener('click', () => {
-        content_width = div_content.offsetWidth
-        div_content.scrollLeft -= content_width
+        size_add_scroll = arrow_previous.nextElementSibling.getElementsByTagName('IMG')[0].offsetWidth + 40
+        max_size = size_add_scroll*7
+        content_overflow = arrow_previous.nextElementSibling.offsetWidth
+        if (size_scroll > 0) {
+            size_scroll -= size_add_scroll
+        }
+        div_to_scroll = arrow_previous.nextElementSibling.getElementsByClassName('content-list')[0]
+        div_to_scroll.setAttribute('style', 'transform: translateX(-' + size_scroll + 'px)')
     });
 
     // Scroll content on left
     const arrow_next = content.getElementsByClassName('arrow-next')[0]
     arrow_next.addEventListener('click', () => {
-        content_width = div_content.offsetWidth
-        div_content.scrollLeft += content_width
+        size_add_scroll = arrow_previous.nextElementSibling.getElementsByTagName('IMG')[0].offsetWidth + 40
+        max_size = size_add_scroll*7
+        content_overflow = arrow_previous.nextElementSibling.offsetWidth
+        if (content_overflow + size_scroll < max_size) {
+            size_scroll += size_add_scroll
+        }
+        else if (content_overflow + size_scroll <= -max_size) {
+            size_scroll = content_width
+        }
+        div_to_scroll = arrow_previous.nextElementSibling.getElementsByClassName('content-list')[0]
+        div_to_scroll.setAttribute('style', 'transform: translateX(-' + size_scroll + 'px)')
     });
 
 }
