@@ -112,6 +112,9 @@ header ul > li {
   overflow-x: hidden;
 }
 .section-list .list .content > div {
+  transition: 1s ease;
+}
+.section-list .list .content > div > div {
   margin: 0 20px;
   cursor: pointer;
 }
@@ -231,6 +234,10 @@ header ul > li {
   #best-movie img {
     max-width: 75%;
     margin: 15px auto;
+  }
+
+  .arrow-previous, .arrow-next {
+    padding: 15px;
   }
 }
 
