@@ -235,6 +235,10 @@ header ul > li {
     max-width: 75%;
     margin: 15px auto;
   }
+
+  .arrow-previous, .arrow-next {
+    padding: 15px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
